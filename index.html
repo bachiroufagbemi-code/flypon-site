@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080d18">
+  <meta name="description" content="FLYPON — Créateur de contenu. Bienvenue dans mon univers !">
+  <title>FLYPON — Créateur de contenu</title>
+  <style>
+    :root{--bg:#080d18;--panel:#101827;--panel2:#0c1422;--text:#f4f7fb;--muted:#aab7ca;--blue:#2587ff;--cyan:#54d7ff;--line:#253349}
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
+    a{color:inherit;text-decoration:none} .wrap{width:min(1100px,92%);margin:auto}
+    header{position:sticky;top:0;z-index:5;background:#080d18eF;border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+    nav{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:70px}.logo{font-size:1.65rem;font-weight:900;letter-spacing:.13em}.logo span{color:var(--blue)}
+    .links{display:flex;gap:22px;align-items:center}.links a{font-size:.93rem;color:var(--muted)}.links a:hover{color:var(--cyan)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--blue);background:var(--blue);color:white;border-radius:999px;padding:11px 18px;font-weight:750;transition:.2s}.btn:hover{transform:translateY(-2px);filter:brightness(1.1)}.btn.ghost{background:transparent;border-color:#52627a}
+    .hero{position:relative;overflow:hidden;padding:90px 0 84px;background:radial-gradient(ellipse at 78% 35%,#063c7c99,transparent 38%),linear-gradient(120deg,#080d18,#0b1525 60%,#07101d)}
+    .hero:after{content:"";position:absolute;width:330px;height:330px;border:1px solid #2587ff44;border-radius:50%;right:7%;top:10%;box-shadow:0 0 0 35px #2587ff0c,0 0 0 75px #2587ff08;pointer-events:none}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:45px;align-items:center;position:relative;z-index:1}.eyebrow{color:var(--cyan);font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:.82rem}
+    h1{font-size:clamp(2.7rem,7vw,5.2rem);line-height:1.02;letter-spacing:-.05em;margin:14px 0 18px}h1 span{color:var(--blue)}.lead{font-size:1.15rem;color:#d0d9e8;max-width:560px}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+    .hero-card{min-height:310px;border:1px solid #2e4665;border-radius:28px;background:linear-gradient(145deg,#142943,#09111f 70%);display:grid;place-items:center;padding:30px;box-shadow:0 25px 80px #0006}.monogram{width:180px;height:180px;border-radius:50%;display:grid;place-items:center;border:2px solid #2587ff99;background:radial-gradient(circle at 35% 25%,#2587ff66,#0a1425 65%);font-size:3rem;font-weight:950;letter-spacing:.1em;box-shadow:0 0 55px #2587ff26}.hero-card p{margin:18px 0 0;color:var(--muted);text-align:center}
+    section{padding:70px 0}.section-head{margin-bottom:28px}.section-head .eyebrow{margin-bottom:5px}h2{font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.15;margin:0 0 10px;letter-spacing:-.03em}.sub{color:var(--muted);margin:0;max-width:650px}
+    .about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:24px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:26px}.about-mark{display:flex;align-items:center;justify-content:center;min-height:230px;background:linear-gradient(145deg,#122b49,#0b1220)}.about-mark strong{font-size:2.5rem;letter-spacing:.14em}.about-mark strong span{color:var(--blue)}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}.stat{background:var(--panel2);border:1px solid var(--line);border-radius:14px;padding:14px}.stat b{display:block;color:var(--cyan)}.stat small{color:var(--muted)}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.project{overflow:hidden;padding:0}.project-art{height:155px;display:grid;place-items:center;background:linear-gradient(135deg,#0d3970,#15243a 55%,#080d18);font-size:2.8rem}.project:nth-child(2) .project-art{background:linear-gradient(135deg,#502b82,#172c58,#080d18)}.project:nth-child(3) .project-art{background:linear-gradient(135deg,#005d66,#173048,#080d18)}.project-body{padding:20px}.project-body p{color:var(--muted);font-size:.94rem;margin-bottom:0}
+    .skills{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.skill{padding:20px;background:var(--panel);border:1px solid var(--line);border-radius:16px}.skill span{font-size:1.5rem}.skill h3{font-size:1rem;margin:8px 0 4px}.skill p{color:var(--muted);font-size:.88rem;margin:0}
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.photo{min-height:160px;border-radius:18px;border:1px solid var(--line);display:grid;place-items:center;background:linear-gradient(135deg,#12375a,#121b2a);color:#dbeaff;font-weight:800}.photo:nth-child(2){background:linear-gradient(135deg,#49316c,#142039)}.photo:nth-child(3){background:linear-gradient(135deg,#155452,#142039)}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.contact-list{display:grid;gap:12px}.contact-item{padding:16px;border:1px solid var(--line);background:var(--panel);border-radius:14px}.contact-item small{display:block;color:var(--muted)}.contact-item strong{overflow-wrap:anywhere}
+    footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-size:.9rem}.footer-row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    @media(max-width:760px){nav{align-items:flex-start;padding:15px 0;flex-direction:column}.links{gap:14px;flex-wrap:wrap}.links a{font-size:.85rem}.links .btn{padding:8px 12px}.hero{padding:62px 0}.hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr}.hero-card{min-height:220px}.monogram{width:135px;height:135px;font-size:2.3rem}.cards{grid-template-columns:1fr}.skills{grid-template-columns:repeat(2,1fr)}.gallery{grid-template-columns:1fr 1fr}.stats{grid-template-columns:1fr 1fr}section{padding:52px 0}}
+    @media(max-width:420px){.gallery,.skills{grid-template-columns:1fr}.links{gap:10px}}
+  </style>
+</head>
+<body>
+<header>
+  <nav class="wrap" aria-label="Navigation principale">
+    <a class="logo" href="#accueil" aria-label="FLYPON accueil">FLY<span>PON</span></a>
+    <div class="links">
+      <a href="#apropos">À propos</a><a href="#projets">Projets</a><a href="#competences">Compétences</a><a href="#photos">Photos</a><a href="#contact">Contact</a>
+    </div>
+    <a class="btn" href="#contact">Me contacter</a>
+  </nav>
+</header>
+<main>
+  <section class="hero" id="accueil">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Créateur de contenu · Bienvenue</div>
+        <h1>Bienvenue dans<br>mon univers <span>FLYPON.</span></h1>
+        <p class="lead">Je crée, j'imagine et je partage des contenus qui donnent vie aux idées. Découvre mes projets, mes vidéos et mon univers créatif.</p>
+        <div class="actions"><a class="btn" href="#projets">Découvrir mes projets ↗</a><a class="btn ghost" href="#apropos">À propos de moi</a></div>
+      </div>
+      <div class="hero-card" aria-label="Identité visuelle FLYPON">
+        <div><div class="monogram">FP</div><p>CRÉATIVITÉ · IMAGE · INSPIRATION</p></div>
+      </div>
+    </div>
+  </section>
+  <section id="apropos">
+    <div class="wrap">
+      <div class="section-head"><div class="eyebrow">À propos</div><h2>Qui se cache derrière FLYPON ?</h2><p class="sub">Un espace pour présenter ta personnalité, ton parcours et ce qui t'inspire.</p></div>
+      <div class="about-grid">
+        <div class="panel about-mark"><strong>FLY<span>PON</span></strong></div>
+        <div class="panel"><h3>La créativité avant tout.</h3><p>Je suis créateur de contenu et j'aime transformer mes idées en projets. Ici, je partage mes créations, mes photos, mes vidéos et mes nouvelles expériences.</p><p style="color:var(--muted)">Personnalise ce texte avec ta vraie présentation quand tu seras prêt.</p>
+          <div class="stats"><div class="stat"><b>Créativité</b><small>Imaginer</small></div><div class="stat"><b>Contenu</b><small>Créer & partager</small></div><div class="stat"><b>Évolution</b><small>Apprendre</small></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="projets" style="background:#0b1220">
+    <div class="wrap"><div class="section-head"><div class="eyebrow">Portfolio</div><h2>Mes projets</h2><p class="sub">Quelques exemples de projets. Remplace-les par tes vraies réalisations.</p></div>
+      <div class="cards">
+        <article class="panel project"><div class="project-art">🎬</div><div class="project-body"><h3>Vidéos & montage</h3><p>Courts-métrages, montages et histoires en images.</p></div></article>
+        <article class="panel project"><div class="project-art">✦</div><div class="project-body"><h3>Identité visuelle</h3><p>Idées graphiques, affiches et créations visuelles.</p></div></article>
+        <article class="panel project"><div class="project-art">📱</div><div class="project-body"><h3>Contenu digital</h3><p>Des contenus pensés pour les réseaux sociaux.</p></div></article>
+      </div>
+    </div>
+  </section>
+  <section id="competences">
+    <div class="wrap"><div class="section-head"><div class="eyebrow">Savoir-faire</div><h2>Mes compétences</h2><p class="sub">Modifie cette liste pour correspondre à ce que tu sais vraiment faire.</p></div>
+      <div class="skills"><div class="skill"><span>🎥</span><h3>Création vidéo</h3><p>Idées, tournage et montage.</p></div><div class="skill"><span>🎨</span><h3>Design</h3><p>Visuels et affiches créatives.</p></div><div class="skill"><span>📸</span><h3>Photographie</h3><p>Images et composition.</p></div><div class="skill"><span>📲</span><h3>Réseaux sociaux</h3><p>Publication et communication.</p></div></div>
+    </div>
+  </section>
+  <section id="videos" style="background:#0b1220">
+    <div class="wrap"><div class="section-head"><div class="eyebrow">À regarder</div><h2>Mes vidéos</h2><p class="sub">Ajoute ici les liens de tes vidéos TikTok, Facebook ou YouTube.</p></div>
+      <div class="panel"><p>🎬 Tes vidéos apparaîtront ici. Pour commencer, remplace ce bloc par les liens de tes publications.</p><a class="btn ghost" href="#contact">Me demander un lien</a></div>
+    </div>
+  </section>
+  <section id="photos">
+    <div class="wrap"><div class="section-head"><div class="eyebrow">Galerie</div><h2>Mes photos</h2><p class="sub">Des emplacements prêts à accueillir tes propres photos.</p></div>
+      <div class="gallery"><div class="photo">Photo 01</div><div class="photo">Photo 02</div><div class="photo">Photo 03</div></div>
+    </div>
+  </section>
+  <section id="contact" style="background:#0b1220">
+    <div class="wrap contact-grid">
+      <div><div class="eyebrow">Contact</div><h2>Créons quelque chose ensemble.</h2><p class="sub">Pour une collaboration, une question ou simplement pour discuter, retrouve-moi sur mes réseaux.</p></div>
+      <div class="contact-list">
+        <div class="contact-item"><small>WhatsApp</small><strong>Ajoute ton numéro WhatsApp</strong></div>
+        <div class="contact-item"><small>TikTok</small><strong>Ajoute le lien de ton profil TikTok</strong></div>
+        <div class="contact-item"><small>Facebook</small><strong>Ajoute le lien de ton profil Facebook</strong></div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap footer-row"><span class="logo" style="font-size:1rem">FLY<span>PON</span></span><span>© <span id="year"></span> FLYPON · Créé avec passion.</span><a href="#accueil">Retour en haut ↑</a></div></footer>
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
